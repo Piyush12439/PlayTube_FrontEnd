@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Content Upload Page</title>
+    <link href="https://fonts.googleapis.com/css?family=Assistant:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="../css/ContentUplode.css">
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+    <div id="container1">
+        <div class="header" id="header">
+            <h1>Uplode containt</h1>
+        </div>
+        <div id="UserPhoto" class="header">
+            <img src=" " id="image">
+            <h2 id="title">Hi Piyush</h2>
+        </div>
+        <div id="drag">
+            <img id="drag1" src="https://www.freeiconspng.com/uploads/upload-icon-30.png" draggable="true" ondragstart="drag(event)">
+            <form id="Uplode-form">
+                <input type="file" name="files" id="containt" />
+                <!-- <button type="submit" onclick="submit()">Submit</button> -->
+            </form>
+
+        </div>
+
+
+        <div class="col1 ">
+            <h3>Containt Title* : </h3>
+            <textarea name="Title" id="containtTitle" cols="80" rows="3"></textarea>
+        </div>
+        <div class="col1 ">
+            <h3 class="checkbox">Containt Type* : </h3>
+            <select class="checkbox" id="type">
+                <option value="Photo">Photo</option>
+                <option value="Video">Video</option>
+            </select>
+        </div>
+
+        <div class="col1">
+            <h3>Tags : </h3>
+            <textarea name="Tags" id="tags" cols="80" rows="3"></textarea>
+
+        </div>
+        <div class="col1">
+            <h3 class="checkbox">Public Video* : </h3>
+            <input type="checkbox" class="checkbox" id="isPublic">
+        </div>
+
+        <div class="col1">
+            <h3>Discription</h3>
+            <textarea name="address" id="discription" cols="80" rows="10"></textarea>
+        </div>
+        <div class="col1">
+            <h3 class="checkbox">Thumbnail* :</h3>
+            <form id="" class="checkbox">
+                <input type="file" name="files" id="Thumbnail" />
+                <img class="Thumbnail" src="https://www.freeiconspng.com/uploads/upload-icon-30.png" draggable="true" ondragstart="drag(event)">
+                <!-- <button type="submit" onclick="submit()">Submit</button> -->
+            </form>
+        </div>
+        <button type="submit" onclick="submit()" id="submit">Submit</button>
+    </div>
+
+
+    <script src="../js/ContentUplode.js">
+    </script>
+
+</body>
+
+</html>

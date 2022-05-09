@@ -1,0 +1,247 @@
+#header {
+    background-color: aliceblue;
+}
+
+.play-container {
+    padding-left: 8%;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.play-video {
+    flex-basis: 55%;
+}
+
+.right-sidebar {
+    flex-basis: 33%;
+}
+
+.play-video video {
+    width: 100%;
+}
+
+.side-video-list {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.main :hover {
+    background-color: rgb(213, 207, 243);
+}
+
+.side-video-list img {
+    width: 100%;
+}
+
+.side-video-list .small-thumbnail {
+    flex-basis: 49%;
+}
+
+.side-video-list .vid-info {
+    flex-basis: 49%;
+}
+
+.side-video-list .vid-info a {
+    font-weight: 600;
+}
+
+.side-video-list .vid-info p {
+    font-size: 13px;
+    margin: 0%;
+}
+
+.play-video .tags a {
+    color: blue;
+    font-size: 13px;
+}
+
+#video {
+    height: 400px;
+}
+
+.play-video h3 {
+    margin: 0%;
+    font-weight: 600;
+    font-size: 22px;
+}
+
+.play-video p {
+    margin: 0%;
+}
+
+.play-video .play-video-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    font-size: 14px;
+    color: #5a5a5a;
+}
+
+.play-video .play-video-info a img {
+    width: 20px;
+    margin-right: 8px;
+}
+
+.play-video .play-video-info a {
+    display: inline-flex;
+    align-items: center;
+    margin-left: 15px;
+}
+
+.play-video hr {
+    border: 0;
+    height: 1px;
+    background: #ccc;
+    margin: 10px 0;
+}
+
+.plublisher {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.plublisher div {
+    flex: 1;
+}
+
+.plublisher img {
+    width: 40px;
+    border-radius: 50%;
+    margin-right: 18px;
+}
+
+.plublisher div p {
+    color: #000;
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.plublisher div span {
+    font-size: 13px;
+    color: #5a5a5a;
+}
+
+.plublisher button {
+    background: red;
+    columns: #fff;
+    padding: 8px 30px;
+    border-radius: 4px;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+}
+
+.vid-description {
+    padding-left: 55px;
+    margin: 15px 0;
+}
+
+.vid-description p {
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: #5a5a5a;
+    ;
+}
+
+.vid-description h4 {
+    font-size: 14px;
+    color: #5a5a5a;
+    margin-top: 15px;
+}
+
+#commentsubmit {
+    float: right;
+    display: none;
+}
+
+#commentsubmit span {
+    padding: 5px;
+    color: blueviolet;
+}
+
+.add-comment {
+    display: flex;
+    align-items: center;
+    margin: 30px 0 5px 0;
+}
+
+.add-comment img {
+    width: 35px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.add-comment input {
+    border: 0;
+    outline: 0;
+    border-bottom: 1px solid #ccc;
+    width: 100%;
+    padding-top: 10px;
+    background: transparent;
+}
+
+.old-comment .sec {
+    display: flex;
+    align-items: center;
+    margin: 20px 0 0px 47px;
+}
+
+.main {
+    cursor: pointer;
+}
+
+.Reply-comments {
+    margin-left: 60px;
+}
+
+.Reply-comments p {
+    width: 91%;
+}
+
+.old-comment img {
+    width: 35px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+
+.old-comment h3 {
+    font-size: 14px;
+    margin-bottom: 2px;
+}
+
+.old-comment h3 span {
+    font-size: 12px;
+    color: #5a5a5a;
+    font-weight: 500;
+    margin-left: 8px;
+}
+
+.old-comment .acomment-action {
+    display: flex;
+    align-items: center;
+    margin: 8px 0;
+    font-size: 14px;
+}
+
+.old-comment .acomment-action img {
+    border-radius: 0;
+    width: 20px;
+    margin-right: 5px;
+}
+
+.old-comment .acomment-action span {
+    margin-right: 20px;
+    color: #5a5a5a;
+}
+
+.old-comment .acomment-action a {
+    color: #0000ffff;
+}

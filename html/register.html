@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Responsive Registaration Form</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../css/register.css">
+    <script type="text/javascript" lang="javascript" src="../js/register.js"></script>
+</head>
+
+<body>
+    <h1> Registaration Form</h1>
+    <div class="container form">
+        <div class="divi" id="divi">
+            <div class="row">
+                <div class="col-10">
+                    <label for="fname">First Name*:</label>
+                </div>
+                <div class="col-90">
+                    <input type="text" id="fname" name="firstname" placeholder="Enter your first name">
+                </div>
+                <span id="username" class="text-danger font-weight-bold"> </span>
+            </div>
+            <div class="row">
+                <div class="col-10">
+                    <label for="lname">Last Name:</label>
+                </div>
+                <div class="col-90">
+                    <input type="text" id="lname" name="lastname" placeholder="Enter your last name">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-10">
+                    <label for="email">Email*:</label>
+                </div>
+                <div class="col-90">
+                    <input type="email" id="email" name="email" placeholder="it should contain @,.">
+                </div>
+                <span id="email1" class="text-danger font-weight-bold"> </span>
+            </div>
+            <div class="row">
+                <div class="col-10">
+                    <label for="mobile">Mobile*:</label>
+                </div>
+                <div class="col-90">
+                    <input type="number" id="mobile" name="mobile" placeholder="only 10 digits are allowed">
+                </div>
+                <span id="mobile1" class="text-danger font-weight-bold"> </span>
+            </div>
+            <div class="row">
+                <div class="col-10">
+                    <label for="gender" required>Gender*:</label>
+                </div>
+                <div class="col-90">
+                    <input type="radio" id="male" name="gender" value="male" />Male
+                    <input type="radio" id="female" name="gender" value="female" />Female
+                </div>
+                <span id="gender" class="text-danger font-weight-bold"> </span>
+            </div>
+            <div class="row">
+                <div class="col-10">
+                    <label for="dob">Date Of Birth*:</label>
+                </div>
+                <div class="col-90">
+                    <input type="Date" id="dob" name="dob" placeholder="dd-mm-yyyy">
+
+                </div>
+                <span id="date" class="text-danger font-weight-bold validate"> </span>
+            </div>
+            <div class="row">
+                <div class="col-10">
+                    <label for="address">Address*:</label>
+                </div>
+                <div class="col-90">
+                    <textarea name="address" id="address" cols="30" rows="10"></textarea>
+                </div>
+                <span id="address1" class="text-danger font-weight-bold validate"> </span>
+            </div>
+            <div class="row">
+                <div class="col-10">
+                    <label for="city">City*:</label>
+                </div>
+                <div class="col-90">
+                    <input type="text" id="city" name="city" maxlength="10">
+                </div>
+                <span id="city1" class="text-danger font-weight-bold"> </span>
+            </div>
+            <div class="row">
+                <div class="col-10">
+                    <label for="pincode">Area PIN*:</label>
+                </div>
+                <div class="col-90">
+                    <input type="number" id="pin" name="pin" maxlength="6">
+                </div>
+                <span id="pincode" class="text-danger font-weight-bold"> </span>
+            </div>
+            <div class="row">
+                <div class="col-10">
+                    <label for="state">State*:</label>
+                </div>
+                <div class="col-90">
+                    <input type="text" id="state" name="state">
+                </div>
+                <span id="state1" class="text-danger font-weight-bold"> </span>
+            </div>
+            <!-- <div class="row">
+            <div class="col-10">
+                <label for="qualification" required>Qualification:</label>
+            </div>
+            <div class="col-90">
+                <select name="qualification" id="qualification">
+                        <option value=" ">Select Qualification:</option>
+                        <option value="Graduation">Graduation</option>
+                        <option value="BTech.">BTech.</option>
+                        <option value="MTech.">MTech.</option>
+                        <option value="MCA">MCA</option>
+                        <option value="BCA">BCA</option>
+                    </select>
+            </div>
+        </div> -->
+            <!-- <div class="row">
+            <div class="col-10">
+                <label for="specialization">Specialization:</label>
+            </div>
+            <div class="col-90">
+                <input type="checkbox" class="specialization" id="cs" name="specialization[]" value="Computer Science">Computer Science<br/>
+                <input type="checkbox" class="specialization" id="it" name="specialization[]" value="Information Technology">Information Technology<br/>
+                <input type="checkbox" class="specialization" id="ca" name="specialization[]" value="Computer Architecture">Computer Architecture<br/>
+                <input type="checkbox" class="specialization" id="tc" name="specialization[]" value="Tele Communication">Tele Communication<br/>
+            </div>
+        </div> -->
+            <div class="row">
+                <div class="col-10">
+                    <label for="password">Create Password*:</label>
+                </div>
+                <div class="col-90">
+                    <input type="password" id="password" name="password" maxlength="8">
+                </div>
+                <span id="password1" class="text-danger font-weight-bold"> </span>
+            </div>
+
+        </div>
+        <div class="divi " style="float: right">
+            <h3>Uplode Photo</h3>
+            <div id="uplode">
+                <!-- <h3>Uplode Photo</h3> -->
+                <img id="photo" src="https://media.istockphoto.com/vectors/vector-businessman-black-silhouette-isolated-vector-id610003972?k=20&m=610003972&s=612x612&w=0&h=-Nftbu4sDVavoJTq5REPpPpV-kXH9hXXE3xg_D3ViKE=">
+                <div id="link">
+                    <form id="uploadFile" name="uploadFiles" class="form">
+                        <input type="file" name="files" id="profilephoto" />
+                        <!-- <div id="photosubmit"><button type="submit">Submit</button></div> -->
+
+                    </form>
+                    <span id="photo1" class="text-danger font-weight-bold"> </span>
+                    <script src="../js/uplode.js"></script>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <div class="row" id="submit">
+        <input type="submit" value="Registered" onclick="getDetails()">
+    </div>
+
+</body>
+
+</html>

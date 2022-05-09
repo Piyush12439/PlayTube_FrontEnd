@@ -1,0 +1,194 @@
+    body {
+        padding: 0px;
+        background-color: #e8ede9;
+        margin: 0px;
+    }
+    
+    #logo {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .c2 {
+        align-items: baseline;
+    }
+    
+    li {
+        list-style: none;
+        text-align: justify;
+        padding: 2px 0px 0px 5px;
+    }
+    
+    .tube {
+        color: rgb(139, 139, 241);
+        display: inline;
+        align-items: flex-start;
+    }
+    
+    #tube {
+        padding-left: 50px;
+        background-color: bisque;
+        height: 73px;
+    }
+    
+    #login {
+        float: right;
+        margin-right: 30px;
+        color: red;
+        border: none;
+        background-color: #53f974;
+    }
+    
+    #loginurl {
+        width: 50px;
+        height: auto;
+        border-radius: 1000px;
+    }
+    
+    button {
+        cursor: pointer;
+    }
+    
+    .button :after {
+        content: '\00bb';
+        position: absolute;
+        opacity: 0;
+        top: 0;
+        right: -20px;
+        transition: 0.5s;
+    }
+    
+    .c1 {
+        float: left;
+    }
+    
+    #navbar {
+        background-color: orange;
+        height: 55px;
+        padding: 5px 0px 5px 50px;
+    }
+    
+    h4 {
+        margin: 0px;
+    }
+    /* #myDIV {
+        display: none;
+    } */
+    
+    .toggle {
+        position: relative;
+        display: inline-block;
+        width: 220px;
+        height: 52px;
+        background-color: red;
+        border-radius: 30px;
+        border: 2px solid gray;
+    }
+    
+    .toggle1 {
+        float: right;
+        margin: 10px 10px 0px 0px;
+        font-size: 25px;
+        font-weight: bold;
+        color: rgb(229, 241, 131);
+    }
+    
+    .photo {
+        float: left;
+        margin: 10px 0px 0px 10px;
+        font-size: 25px;
+        font-weight: bold;
+        color: rgb(229, 241, 131);
+    }
+    /* After slide changes */
+    
+    .toggle:after {
+        content: '';
+        position: absolute;
+        width: 120px;
+        height: 47px;
+        background-color: gray;
+        top: 1px;
+        left: 1px;
+        transition: all 0.5s;
+        background-color: #ddd;
+        border: none;
+        color: black;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        margin-top: 1px;
+        cursor: pointer;
+        border-radius: 25px;
+    }
+    /* Toggle text */
+    /* Checkbox checked effect */
+    
+    .checkbox:checked+.toggle::after {
+        left: 98px;
+    }
+    /* Checkbox checked toggle label bg color */
+    
+    .checkbox:checked+.toggle {
+        background-color: green;
+    }
+    /* Checkbox vanished */
+    
+    .checkbox {
+        display: none;
+    }
+    
+    .navbar {
+        float: left;
+    }
+    
+    #uplode-icon {
+        width: 60px;
+        height: auto;
+    }
+    
+    #uplode {
+        float: right;
+        margin-right: 100px;
+    }
+    
+    .list-container {
+        display: grid;
+        grid-template-columns: repeat( auto-fit, minmax(250px, 1fr));
+        grid-column-gap: 16px;
+        grid-row-gap: 30px;
+        margin-top: 15px;
+    }
+    
+    .vid-list .thumbnail {
+        width: 100%;
+        border-radius: 5%;
+    }
+    
+    .vid-list .flex-div {
+        align-items: flex-start;
+        margin-top: 7px;
+    }
+    
+    .vid-list .flex-div img {
+        width: 35px;
+        margin-right: 10px;
+        border-radius: 50%;
+    }
+    
+    .vid-info {
+        color: #5a5a5a;
+        font-size: 13px;
+    }
+    
+    .vid-info a {
+        cursor: pointer;
+        color: #000;
+        font-weight: 600;
+        display: block;
+        margin-bottom: 5px;
+    }
+    
+    .c1 {
+        float: left;
+    }
