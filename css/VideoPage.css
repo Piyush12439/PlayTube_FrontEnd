@@ -167,6 +167,16 @@
     color: blueviolet;
 }
 
+#commentsubmit1 {
+    float: right;
+    display: none;
+}
+
+#commentsubmit1 span {
+    padding: 5px;
+    color: blueviolet;
+}
+
 .add-comment {
     display: flex;
     align-items: center;
