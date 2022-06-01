@@ -1,5 +1,69 @@
-#header {
-    background-color: aliceblue;
+.header {
+    padding: 1% 2% 0 2%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.logo {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+}
+
+.menuimg {
+    /* padding: %; */
+    width: 50%;
+    padding-top: 5%;
+}
+
+.menuimg:hover {
+    cursor: pointer;
+}
+
+#logo {
+    width: 40%;
+    grid-column: 2/-1;
+}
+
+.search {
+    display: inline-flex;
+    border: 3px solid rgb(105, 81, 81);
+    border-radius: 25px;
+}
+
+.search input {
+    /* padding: 6px; */
+    width: 90%;
+    border: none;
+    /* margin-top: 8px; */
+    margin: 0px 10px 0px 16px;
+    /* font-size: ; */
+}
+
+.search input:focus {
+    outline: none;
+}
+
+.search img {
+    width: 10%;
+    border-radius: 50%;
+}
+
+.login {
+    display: grid;
+    padding-left: 60%;
+    grid-template-columns: 30% 32%;
+    column-gap: 8%;
+}
+
+
+/* .login :hover {
+    cursor: pointer;
+} */
+
+.login img {
+    width: 100%;
+    /* max-width: 70px; */
+    cursor: pointer;
 }
 
 .play-container {
@@ -254,4 +318,81 @@
 
 .old-comment .acomment-action a {
     color: #0000ffff;
+}
+
+.play-video-info div a:hover {
+    cursor: pointer;
+}
+
+.SaveflyOut {
+    /* display: none; */
+    position: absolute;
+    z-index: 1;
+    background-color: white;
+    color: rgb(13, 4, 4);
+    width: 30%;
+    border-radius: 10px;
+    border: #000 solid 1;
+    padding: 2%;
+    /* opacity: .7; */
+    top: 75%;
+    left: 40%;
+    display: none;
+    grid-template-columns: 80% 20%;
+}
+
+.SaveflyOut div img {
+    padding: 10% 30%;
+    width: 50%;
+    /* float: right; */
+}
+
+.main_Old {
+    filter: brightness(50%);
+    /* filter: contrast(50%);v */
+    opacity: var(--iron-overlay-backdrop-opacity, 0.9);
+    pointer-events: auto;
+    background-color: rgb(57, 36, 36);
+    /* opacity: .8; */
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    top: 150%;
+    left: 50%;
+    margin-left: -60px;
+}
+
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent black transparent;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
 }

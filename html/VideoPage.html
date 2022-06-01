@@ -9,83 +9,105 @@
 </head>
 
 <body>
-    <div id="header">
-        <h1>Header</h1>
+    <div class="SaveflyOut">
+        <span>Share the video by Url :-</span><br>
+        <span>videourl</span>
+        <div class="tooltip"><img onclick="copy()" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQeUZtDVIwVf_A4-cua6lA10kUgaZ9awLwU4g&usqp=CAU"><span class="tooltiptext">Copy Url</span></div>
+
     </div>
-    <div class="container play-container">
-        <div class="row">
-            <div class="play-video" id="play-video">
-                <video controls id="video">
+    <div class="Main">
+
+        <div class="header">
+            <div class="logo">
+                <img class="menuimg" onclick="menu()" src="https://uxwing.com/wp-content/themes/uxwing/download/07-web-app-development/hamburger-menu.png">
+                <img id="logo" src="./playtube1.png">
+            </div>
+            <div class="search">
+                <input type="text" placeholder="Write to search">
+                <img src="https://flyclipart.com/thumb2/circle-icons-magnifyingglass-18124.png">
+                <!-- <input type="text" placeholder="Write to search"> -->
+            </div>
+            <div class="login">
+
+                <img src="https://www.iconpacks.net/icons/1/free-user-login-icon-305-thumb.png" onmouseover="loginflyIn()" onmouseout="loginflyout()">
+                <img class="uplodeicon" src="https://library.kissclipart.com/20180929/erw/kissclipart-download-cloud-icon-clipart-computer-icons-downloa-7a6e99cf604ac851.png" onclick="uplode()">
+            </div>
+        </div>
+
+        <div class="container play-container">
+            <div class="row">
+                <div class="play-video" id="play-video">
+                    <video controls id="video">
                     <source src="1.mp4" type="video/mp4" >
                 </video>
 
-                <div class="tags" id="tags">
-                    <a href="">#playtube</a>
-                    <a href="">#Coding</a>
-                </div>
-                <h3 id="docName">Best Playtube channel to Enjoy</h3>
-                <div class="play-video-info">
-                    <p><span id="views">11Views</span> &bull; <span id="uplodedays"> Days ago</span> </p>
-                    <div>
-                        <a herf=""><img id="likes" onclick="like()" src="https://pngimg.com/uploads/like/small/like_PNG85.png"> <span id="like">1245</span> </a>
-                        <a herf=" "><img id="dislikes" onclick="dislike()" src="https://cdn-icons-png.flaticon.com/512/126/126504.png"><span id="dislike">12 </span> </a>
-                        <a herf=" " onclick="Share()"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIIAAACCCAMAAAC93eDPAAAAYFBMVEX///8AAADx8fGMjIyioqLs7Ozk5OQeHh6FhYWfn59UVFTS0tKIiIilpaUaGhoRERGZmZktLS24uLgoKCisrKzFxcXb29tBQUEKCgojIyMyMjJra2tzc3NcXFw5OTlOTk6Rh0QpAAAC+ElEQVR4nO2b2bKCMAyGCVAWEREVFNze/y2PZXRUWlouzHJm+G+96GdJkzRJg2DRokWLGJQ00arbpMds1/IAtJc9vFRdG3qA8ALfWhXEBA2Y2pISlBYCgAshwcFKQMlQTBAA5EQE4WYSAYhsMpomgBUJQeLYBAAS/7B1EcCVAqF2IlQEvrqtnAiww0fYuQkgw0dwmwLAER/BdSS1Un6EDT9Ch4+QexAI/ONUlHwpwgZQUepBQPbQ4dqzPkCtMAESPwBu1qIy3ycYhBciVHSaA4C3CSqbtf5DIQ5AMhsA6TiobJwl1XEzYRYlBkBo+uP4sdmFNWk4IAAo4xh2zzQ9XBkAHUL2nGTjU9CXb3M73L5+2kS/t0S1Hm/2Pv9aJdwdX1ZS1dvk5wAWV1yafzNp8iiKthjlBdMV1/HvV3EBmMfQsgOICg1XnOakAKYrPlF/gjFAj+LwJmWG4z5mtoETCkBbFIXViZg2kCJUTNr8nuo/Wu2vuxGGzQZ+vwPt+XOFffaRZVrCMcYxNLOOV2S1uGIMG0h6YxmA8/CL6YpRqmatjUBfvUxXjGEDD6mblQDgPvYDHZYrPk4QGEILRvZ6saEeLxYoZ5nwDYDoin31AK0KNRaEfkuokMPxdNX8qRt6RhR7CNb44fjsQSAolrorxiQNJd+RRK9OiUAQ8CEEmKOAQynANQlw0ALClIRgPTtlwWz28iduEtJXAUn848Ji2wfSq0xgudCdiC90gZ6/+SwfcFxrg+/L/ah7Q3O5f2Lwljg8oir0OMVe7tJiL/ppsZc+tdgLwFrsZfABgrsZoMXeEtHyNobUAbcxpJVkY4hPt11+ZwApQntMa7pJqO7Gh9ogjdixt0q12BvGWuxtcy324YEBgnuEYoDgHiTRYh+n0ZoxVLTHcZMfYh+t0mIfMBMxZidg2PAfjFwSDJ4KGL8VMIQsYBRbwEC6hLF8AY8TBDzRkPBQRcBzHQmPlqYYKAnsD9io62P8z/gCAY8ZtdifdC5atOif6Q/04idEf/a2jgAAAABJRU5ErkJggg==">                            Share </a>
-                        <a herf=" "><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAAAYFBMVEX///9NTU9KSkz29vbt7e1UVFZGRkhkZGVBQUOQkJHOzs89PT/g4OD7+/uTk5Q6Oj2+vr9vb3BfX2BpaWuEhIXW1tZ+fn/FxcZ3d3gvLzKsrKycnJ0oKCujo6S4uLlZWVuc59a0AAACtElEQVR4nO2a7ZqCIBCFE5FQIPIrrba6/7tcHWjLMgrF3R875089PsG8C2cAl1mtUCgUCoVCoRyK6yyA6nhi+CYXPIhE3kwIr3acRYHE+E55A+Q8VPhePPeNvxF9O8ICiPQ9iY1ffKn78HqXBtBO9wha+g1ANwEkqf2oX6lOOgLuNwRF32SKd0fV9H9O4dOCdsykmJq/z91duu4S6guwDgYQrxEAARAAARAAARAAARAAARAAARAAARAAARAAARAAARAAARAAARBgOQD6SbcLAhyj6PSXAJWOIl39GQAt4X6Zl++6XgigvtjrdXZ5c8W6DEDNyfVunHA3wSIA5z2E7tR/7re/DbDRMP0FpQUYQbvupsMDqNbYr1Xd9/z2/bcA6BpiitTQVFDswNcvI4QGkBHYf3+4PjiAH1j0qkYhMMAW7E90dnuUQZEE4S+sGBbgAPHZsLyiThgQHEabhARQR2P/9cNwS2MLfVwYQO0gvni2vGrBinqsYigcAE0cSZ+asRkJFAxAEuKYaesOQp6SIRRAAzVJhL2srrE/eCq/CQRwgElm3FGRJE39mX4YojAAlbW/c4uKbTJUD0/nA1Cz+ovqzSEhtutyex8uAIBNczGa5kPZhaK8m6n5AJI8rP4uPe8MswG2X8b+mavNTZlJhq+fZJgLcDLTWnxckCcLGDBxPbHPA1Dph2ff+/b2vJyq+QDK9DWy+rtkdwZeqrkA9vChP3j/Geqkb1acAZBF4CfhPPSOayugaZRNBijo6sy87D+UTQZ2XtHCFwBKOllrNliW+NWj/kgmZvrSlvmWdK7A+Wb1Efnk/xPEudm/CGSEV1NKru9d2q/hg8wYwinBawa6CTQbK+He9h/qZN4gGfe2kSwF5+Iyu7S3ufT9lFNsRJtmovuGkk3jOfwoFAqFQqH+l74BxS4txCdlv/kAAAAASUVORK5CYII=">                            Save </a>
+                    <div class="tags" id="tags">
+                        <a href="">#playtube</a>
+                        <a href="">#Coding</a>
                     </div>
-                </div>
-                <hr>
-                <div class="plublisher">
-                    <img src=" " id="channalPhoto">
-                    <div>
-                        <p id="channalName">Playtube</p>
-                        <span>50M</span>
-                    </div>
-                    <button type="button">Suscribe</button>
-                </div>
-                <div class="vid-description">
-                    <p id="discription">Channel that makes Enjoy easy</p>
-
-
-
-                </div>
-                <hr>
-                <div class="vid-description" id="vid-description">
-                    <h4 id="commentNo">134 Comments</h4>
-                    <div class="add-comment">
-                        <img src=" ">
-                        <input type="text" placeholder="Write comments here.........." id="CommentBox">
-
-                    </div>
-                    <div id="commentsubmit">
-                        <span id="CancelComment"><u>Cancel</u></span>
-                        <button type="button" onclick="addComment()">COMMENT</button>
-                    </div>
-                    <div class="old-comment">
-                        <img src=" " alt="">
+                    <h3 id="docName">Best Playtube channel to Enjoy</h3>
+                    <div class="play-video-info">
+                        <p><span id="views">11Views</span> &bull; <span id="uplodedays"> Days ago</span> </p>
                         <div>
-                            <h3>Piyush <span>2 days ago</span></h3>
-                            <p>Good Video</p>
-                            <div class="acomment-action">
-                                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIIAAACCCAMAAAC93eDPAAAAaVBMVEX///8AAAD7+/tWVlbt7e3CwsI7Ozu9vb2JiYmjo6NhYWG3t7dtbW329vbw8PDc3Nxzc3OQkJAVFRXT09MmJiZOTk7Nzc2xsbGDg4Pi4uKZmZlAQEBnZ2dHR0epqakvLy8fHx97e3sLCwupu5heAAAD0klEQVR4nO2aW7uqIBCG06w0D5mHzJVZ9v9/5E4GEslwWCvwYvNdgaW8j8wBBlcrKysrKysrKyur/0iH0E+j6HhaDOC0zhzQOlkEIE6dQbdFGHiC53tYgMC7jRCcyjxCPiZwtuYRdjCyX+2O0DLvFj4Zt+mbe9I8G0coybjHvnkizYdpAhesMezbyYW0PcMIB4hKOelEA45BbcioWUw6wTApBhXwnggOmhpGiPhRPQiQrlmEjA+JMeltDeeJUTiKr33nbtYlDoSgqGm3WcArWzLmNaZdsIxaesu3xYXnXh3pHkwSuJAWflj/bB4hKcbJ0TePAIlpmPwFEGAe9q++eYSTuFYzb47wEpzhQmraKSFLDv5gPjS5dzLgfUgJ8ba/YHAvAbbnBMOVhFwo48/3fFd0Gi7cgLXZ9YL3GCVJjso3ROBunffxYCfRGkKgO8n76GJjMizQnRNdOVPBisUxs25jBOM9LKxfLkYJBMMLyUUja/iAEuyF62AKu+8MknjvesU89g4u40l3PRItH/nUzZ5auHLbwplS0ZIxO9otR3HYPU/ew2kd5NPjvStef35KvIppdnSu42T0M0fQq0H6ayd5xtm70lYhpMNMchcnVNgSCzfTuopze8ch8Jn9o2bntFfzZl0hEgFTBwJLuG1F8YW1dMK+q8vbLfzdr4lCbHoBYbNyx2JlrV7d9J2uRMmhYm42b5IMQdSA8NvKoo+1hjmEAu3dolzwpmb2jzMI5R8WhhA75kvEcoTy9wDfQhAzk5JgoTWfSfUhtN/xiD8g0CyCeIImhKSkHoXY7elBSFhgwpRm9SCw5BfM/1UXQnxDRkZ9CPQ14Ha8ujzCRwYFjQg1SdfZkgg0NmJWj9oQ4MgGs8vQhgA+gUn1uhAqCAyYPa8mBEoQYf6rBWEDhuBkqHqgDoTXxgC37NSA4DECXHzWgVBTAmwRSsdEgCWgyy86EKg7YOtgOhBoqXjJiaAPxdZEtSB0yyNEiyPQwIBaOOpByLNlPSI+sQIZ+pOnLyOwBNUXJJdBSIb6EL4q+12E17dfmcLnTnKEteK5Ez3ULjqVU7uZKsujUftgB4ISMkvjEHodFYo9sKVXOyBAIDgPH30gqwvhaV1n3Jtw10pxUY6wcQR1CBtnX4SqnWIDwnEXjrXzRYTeP3y5WGVF8VPQ/cRQg5rwKv19WorV0lb6sGrlnpQhVA/MPNnhRkYijCKE+gHyTvI0ZqV5KvmTQP2bE7tw+nTsGWa5p9U/5ae/8bqohDFOXpVG70orIc7Xm7ANZGrD3NinDFZWVlZWVlZWVvr1D4tYLAptZ10jAAAAAElFTkSuQmCC">
-                                <span>244</span>
-                                <img src="https://cdn-icons-png.flaticon.com/512/126/126504.png">
-                                <span>24</span>
-                                <span>Reply</span>
-                                <a href="">All reply</a>
+                            <a herf=""><img id="likes" onclick="like()" src="https://pngimg.com/uploads/like/small/like_PNG85.png"> <span id="like">1245</span> </a>
+                            <a herf=" "><img id="dislikes" onclick="dislike()" src="https://cdn-icons-png.flaticon.com/512/126/126504.png"><span id="dislike">12 </span> </a>
+                            <a herf=" " onclick="Share()"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIIAAACCCAMAAAC93eDPAAAAYFBMVEX///8AAADx8fGMjIyioqLs7Ozk5OQeHh6FhYWfn59UVFTS0tKIiIilpaUaGhoRERGZmZktLS24uLgoKCisrKzFxcXb29tBQUEKCgojIyMyMjJra2tzc3NcXFw5OTlOTk6Rh0QpAAAC+ElEQVR4nO2b2bKCMAyGCVAWEREVFNze/y2PZXRUWlouzHJm+G+96GdJkzRJg2DRokWLGJQ00arbpMds1/IAtJc9vFRdG3qA8ALfWhXEBA2Y2pISlBYCgAshwcFKQMlQTBAA5EQE4WYSAYhsMpomgBUJQeLYBAAS/7B1EcCVAqF2IlQEvrqtnAiww0fYuQkgw0dwmwLAER/BdSS1Un6EDT9Ch4+QexAI/ONUlHwpwgZQUepBQPbQ4dqzPkCtMAESPwBu1qIy3ycYhBciVHSaA4C3CSqbtf5DIQ5AMhsA6TiobJwl1XEzYRYlBkBo+uP4sdmFNWk4IAAo4xh2zzQ9XBkAHUL2nGTjU9CXb3M73L5+2kS/t0S1Hm/2Pv9aJdwdX1ZS1dvk5wAWV1yafzNp8iiKthjlBdMV1/HvV3EBmMfQsgOICg1XnOakAKYrPlF/gjFAj+LwJmWG4z5mtoETCkBbFIXViZg2kCJUTNr8nuo/Wu2vuxGGzQZ+vwPt+XOFffaRZVrCMcYxNLOOV2S1uGIMG0h6YxmA8/CL6YpRqmatjUBfvUxXjGEDD6mblQDgPvYDHZYrPk4QGEILRvZ6saEeLxYoZ5nwDYDoin31AK0KNRaEfkuokMPxdNX8qRt6RhR7CNb44fjsQSAolrorxiQNJd+RRK9OiUAQ8CEEmKOAQynANQlw0ALClIRgPTtlwWz28iduEtJXAUn848Ji2wfSq0xgudCdiC90gZ6/+SwfcFxrg+/L/ah7Q3O5f2Lwljg8oir0OMVe7tJiL/ppsZc+tdgLwFrsZfABgrsZoMXeEtHyNobUAbcxpJVkY4hPt11+ZwApQntMa7pJqO7Gh9ogjdixt0q12BvGWuxtcy324YEBgnuEYoDgHiTRYh+n0ZoxVLTHcZMfYh+t0mIfMBMxZidg2PAfjFwSDJ4KGL8VMIQsYBRbwEC6hLF8AY8TBDzRkPBQRcBzHQmPlqYYKAnsD9io62P8z/gCAY8ZtdifdC5atOif6Q/04idEf/a2jgAAAABJRU5ErkJggg==">                                Share </a>
+                            <a herf=" " id="save" onclick="save()"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAAAYFBMVEX///9NTU9KSkz29vbt7e1UVFZGRkhkZGVBQUOQkJHOzs89PT/g4OD7+/uTk5Q6Oj2+vr9vb3BfX2BpaWuEhIXW1tZ+fn/FxcZ3d3gvLzKsrKycnJ0oKCujo6S4uLlZWVuc59a0AAACtElEQVR4nO2a7ZqCIBCFE5FQIPIrrba6/7tcHWjLMgrF3R875089PsG8C2cAl1mtUCgUCoVCoRyK6yyA6nhi+CYXPIhE3kwIr3acRYHE+E55A+Q8VPhePPeNvxF9O8ICiPQ9iY1ffKn78HqXBtBO9wha+g1ANwEkqf2oX6lOOgLuNwRF32SKd0fV9H9O4dOCdsykmJq/z91duu4S6guwDgYQrxEAARAAARAAARAAARAAARAAARAAARAAARAAARAAARAAARAAARBgOQD6SbcLAhyj6PSXAJWOIl39GQAt4X6Zl++6XgigvtjrdXZ5c8W6DEDNyfVunHA3wSIA5z2E7tR/7re/DbDRMP0FpQUYQbvupsMDqNbYr1Xd9/z2/bcA6BpiitTQVFDswNcvI4QGkBHYf3+4PjiAH1j0qkYhMMAW7E90dnuUQZEE4S+sGBbgAPHZsLyiThgQHEabhARQR2P/9cNwS2MLfVwYQO0gvni2vGrBinqsYigcAE0cSZ+asRkJFAxAEuKYaesOQp6SIRRAAzVJhL2srrE/eCq/CQRwgElm3FGRJE39mX4YojAAlbW/c4uKbTJUD0/nA1Cz+ovqzSEhtutyex8uAIBNczGa5kPZhaK8m6n5AJI8rP4uPe8MswG2X8b+mavNTZlJhq+fZJgLcDLTWnxckCcLGDBxPbHPA1Dph2ff+/b2vJyq+QDK9DWy+rtkdwZeqrkA9vChP3j/Geqkb1acAZBF4CfhPPSOayugaZRNBijo6sy87D+UTQZ2XtHCFwBKOllrNliW+NWj/kgmZvrSlvmWdK7A+Wb1Efnk/xPEudm/CGSEV1NKru9d2q/hg8wYwinBawa6CTQbK+He9h/qZN4gGfe2kSwF5+Iyu7S3ufT9lFNsRJtmovuGkk3jOfwoFAqFQqH+l74BxS4txCdlv/kAAAAASUVORK5CYII=">                                <span>Save</span> </a>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="plublisher">
+                        <img src=" " id="channalPhoto">
+                        <div>
+                            <p id="channalName">Playtube</p>
+                            <span id="subscribeNo">50M</span>
+                        </div>
+                        <button type="button" onclick="subscribe()" id="subscribe">Suscribe</button>
+                    </div>
+                    <div class="vid-description">
+                        <p id="discription">Channel that makes Enjoy easy</p>
+
+
+
+                    </div>
+                    <hr>
+                    <div class="vid-description" id="vid-description">
+                        <h4 id="commentNo">134 Comments</h4>
+                        <div class="add-comment">
+                            <img src=" ">
+                            <input type="text" placeholder="Write comments here.........." id="CommentBox">
+
+                        </div>
+                        <div id="commentsubmit">
+                            <span id="CancelComment"><u>Cancel</u></span>
+                            <button type="button" onclick="addComment()">COMMENT</button>
+                        </div>
+                        <div class="old-comment">
+                            <img src=" " alt="">
+                            <div>
+                                <h3>Piyush <span>2 days ago</span></h3>
+                                <p>Good Video</p>
+                                <div class="acomment-action">
+                                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIIAAACCCAMAAAC93eDPAAAAaVBMVEX///8AAAD7+/tWVlbt7e3CwsI7Ozu9vb2JiYmjo6NhYWG3t7dtbW329vbw8PDc3Nxzc3OQkJAVFRXT09MmJiZOTk7Nzc2xsbGDg4Pi4uKZmZlAQEBnZ2dHR0epqakvLy8fHx97e3sLCwupu5heAAAD0klEQVR4nO2aW7uqIBCG06w0D5mHzJVZ9v9/5E4GEslwWCvwYvNdgaW8j8wBBlcrKysrKysrKyur/0iH0E+j6HhaDOC0zhzQOlkEIE6dQbdFGHiC53tYgMC7jRCcyjxCPiZwtuYRdjCyX+2O0DLvFj4Zt+mbe9I8G0coybjHvnkizYdpAhesMezbyYW0PcMIB4hKOelEA45BbcioWUw6wTApBhXwnggOmhpGiPhRPQiQrlmEjA+JMeltDeeJUTiKr33nbtYlDoSgqGm3WcArWzLmNaZdsIxaesu3xYXnXh3pHkwSuJAWflj/bB4hKcbJ0TePAIlpmPwFEGAe9q++eYSTuFYzb47wEpzhQmraKSFLDv5gPjS5dzLgfUgJ8ba/YHAvAbbnBMOVhFwo48/3fFd0Gi7cgLXZ9YL3GCVJjso3ROBunffxYCfRGkKgO8n76GJjMizQnRNdOVPBisUxs25jBOM9LKxfLkYJBMMLyUUja/iAEuyF62AKu+8MknjvesU89g4u40l3PRItH/nUzZ5auHLbwplS0ZIxO9otR3HYPU/ew2kd5NPjvStef35KvIppdnSu42T0M0fQq0H6ayd5xtm70lYhpMNMchcnVNgSCzfTuopze8ch8Jn9o2bntFfzZl0hEgFTBwJLuG1F8YW1dMK+q8vbLfzdr4lCbHoBYbNyx2JlrV7d9J2uRMmhYm42b5IMQdSA8NvKoo+1hjmEAu3dolzwpmb2jzMI5R8WhhA75kvEcoTy9wDfQhAzk5JgoTWfSfUhtN/xiD8g0CyCeIImhKSkHoXY7elBSFhgwpRm9SCw5BfM/1UXQnxDRkZ9CPQ14Ha8ujzCRwYFjQg1SdfZkgg0NmJWj9oQ4MgGs8vQhgA+gUn1uhAqCAyYPa8mBEoQYf6rBWEDhuBkqHqgDoTXxgC37NSA4DECXHzWgVBTAmwRSsdEgCWgyy86EKg7YOtgOhBoqXjJiaAPxdZEtSB0yyNEiyPQwIBaOOpByLNlPSI+sQIZ+pOnLyOwBNUXJJdBSIb6EL4q+12E17dfmcLnTnKEteK5Ez3ULjqVU7uZKsujUftgB4ISMkvjEHodFYo9sKVXOyBAIDgPH30gqwvhaV1n3Jtw10pxUY6wcQR1CBtnX4SqnWIDwnEXjrXzRYTeP3y5WGVF8VPQ/cRQg5rwKv19WorV0lb6sGrlnpQhVA/MPNnhRkYijCKE+gHyTvI0ZqV5KvmTQP2bE7tw+nTsGWa5p9U/5ae/8bqohDFOXpVG70orIc7Xm7ANZGrD3NinDFZWVlZWVlZWVvr1D4tYLAptZ10jAAAAAElFTkSuQmCC">
+                                    <span>244</span>
+                                    <img src="https://cdn-icons-png.flaticon.com/512/126/126504.png">
+                                    <span>24</span>
+                                    <span>Reply</span>
+                                    <a href="">All reply</a>
+                                </div>
                             </div>
                         </div>
                     </div>
+
+
+
+
                 </div>
 
 
 
-
-            </div>
-
-
-
-            <div class="right-sidebar" id="right-sidebar">
-                <!-- <div class="side-video-list">
+                <div class="right-sidebar" id="right-sidebar">
+                    <!-- <div class="side-video-list">
                     <a href="" class="small-thumbnail"><img src="11.jpg"></a>
                     <div class="vid-info">
                         <a href="">Best channel Videos</a>
@@ -94,10 +116,11 @@
                     </div>
                 </div> -->
 
+                </div>
+
             </div>
 
         </div>
-
     </div>
 
     <script src="../js/VideoPage.js"></script>

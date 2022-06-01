@@ -1,7 +1,3 @@
-window.addEventListener('load', function() {
-
-
-})
 let replieBoxStatus = [];
 
 function Comment(element, reply, reply_id) {
@@ -161,110 +157,204 @@ function Comment(element, reply, reply_id) {
 
 let replies = [];
 let responsedata;
+
 let photourl = "data:image/png;base64,";
 let time;
 let reply_id;
-window.addEventListener('load', function() {
-    temp = 0
-    let params = window.location.href;
-
-    if ("http://127.0.0.1:5500/html/VideoPage.html".length < params.length) {
-        params = params.split("?");
-        window.localStorage.setItem('v_id', params[2]);
-
-    }
-    let id = this.window.localStorage.getItem('v_id');
-    axios
-        .get("http://localhost:8082/tube/items/homeVideo/" + id)
-        .then(response => {
-            responsedata = response.data;
-            console.log(response.data);
-            let video = document.getElementById('video');
-            let url = "data:video/mp4;base64,";
-            video.src = url + String(responsedata.video);
-            let tags = document.getElementById('tags');
-            var tag1 = null;
-            let text = null;
-            responsedata.tag.forEach(element => {
-                // console.log(element.tag);
-                tag1 = document.createElement("a");
-                tag1.href = '';
-                text = this.document.createTextNode('#' + element.tag);
-                tag1.appendChild(text);
-                tags.appendChild(tag1);
-            });
-            this.document.getElementById('docName').innerHTML = responsedata.docName;
-            let view = responsedata.views;
-            time = ((new Date() - new Date(responsedata.uplodeDate)) / (1000 * 3600));
-            // console.log(time);
-
-            this.document.getElementById('views').innerHTML = view > 1000 ? (view / 1000) + 'K views' : view + 'views';
-            this.document.getElementById('uplodedays').innerHTML = (time < 24 ? (Math.round(time) + ' hours') : (Math.round(time / 24) + ' days'));
-            this.document.getElementById('dislike').innerHTML = responsedata.dislikes;
-            this.document.getElementById('like').innerHTML = responsedata.likes;
-            this.document.getElementById('channalName').innerHTML = responsedata.user;
-            this.document.getElementById('channalPhoto').src = photourl + String(responsedata.profilePhoto);
-            this.document.getElementById('discription').innerHTML = responsedata.discription;
-            this.document.getElementById('commentNo').innerHTML = responsedata.comment.length + ' Comments';
-            getLikeStatus(id, window.localStorage.getItem('id'))
-            responsedata.comment.reverse().forEach(element => {
-                reply_id = null;
-                Comment(element, false, reply_id);
+let isSaved = 2;
 
 
+let User_id = this.window.localStorage.getItem('id');
+let Video_id = this.window.localStorage.getItem('v_id');
+let Channel_id =
+    window.addEventListener('load', function() {
+        temp = 0
+        let params = window.location.href;
 
-            });
+        if ("http://127.0.0.1:5500/html/VideoPage.html".length < params.length) {
+            params = params.split("?");
+            window.localStorage.setItem('v_id', params[2]);
 
-        })
-        .catch(error => console.error(error));
-    // ================================
-    axios
-        .get("http://localhost:8082/tube/items/homeVideo")
-        .then(response => {
+        }
+        let id = this.window.localStorage.getItem('v_id');
+        axios
+            .get("http://localhost:8082/tube/items/homeVideo/" + id)
+            .then(response => {
+                responsedata = response.data;
+                console.log(response.data);
+                let video = document.getElementById('video');
+                let url = "data:video/mp4;base64,";
+                video.src = url + String(responsedata.video);
+                let tags = document.getElementById('tags');
+                var tag1 = null;
+                let text = null;
+                responsedata.tag.forEach(element => {
+                    // console.log(element.tag);
+                    tag1 = document.createElement("a");
+                    tag1.href = '';
+                    text = this.document.createTextNode('#' + element.tag);
+                    tag1.appendChild(text);
+                    tags.appendChild(tag1);
+                });
+                this.document.getElementById('docName').innerHTML = responsedata.docName;
+                let view = responsedata.views;
+                Channel_id = responsedata.userId;
+                time = ((new Date() - new Date(responsedata.uplodeDate)) / (1000 * 3600));
+                // console.log(time);
 
-            response.data.forEach(element => {
-                if (element.id != window.localStorage.getItem('v_id')) {
-                    console.log(element);
-                    let main = document.createElement("a");
-                    main.classList.add('main');
-                    main.onclick = function() {
-                        window.localStorage.setItem('v_id', element.id);
-                        window.location = "/html/VideoPage.html";
-                    };
+                this.document.getElementById('views').innerHTML = view > 1000 ? (view / 1000) + 'K views' : view + 'views';
+                this.document.getElementById('uplodedays').innerHTML = (time < 24 ? (Math.round(time) + ' hours') : (Math.round(time / 24) + ' days'));
+                this.document.getElementById('dislike').innerHTML = responsedata.dislikes;
+                this.document.getElementById('like').innerHTML = responsedata.likes;
+                this.document.getElementById('channalName').innerHTML = responsedata.user;
+                axios
+                    .get("http://localhost:8082/tube/saved/IsSave/" + User_id + '/' + id)
+                    .then(response => {
+                        // console.log(response.data);
+                        if (response.data == 1) {
 
-                    let side_video_list = document.createElement("div");
-                    side_video_list.classList.add('side-video-list');
-                    let small_thumbnail = document.createElement('a');
-                    small_thumbnail.classList.add('small-thumbnail');
-                    let small_thumbnail_img = document.createElement('img');
-                    small_thumbnail_img.src = photourl + String(element.thumbnail);
-                    small_thumbnail.appendChild(small_thumbnail_img);
-                    side_video_list.appendChild(small_thumbnail);
-                    let vid_info = document.createElement('div');
-                    vid_info.classList.add('vid-info');
-                    let vid_title = document.createElement('a');
-                    let vid_title_text = this.document.createTextNode(element.docName.length < 65 ? element.docName : element.docName.slice(0, 60) + '.....');
-                    vid_title.appendChild(vid_title_text);
-                    vid_info.appendChild(vid_title);
-                    let channelName = document.createElement('p');
-                    let channelName_text = this.document.createTextNode(element.user);
-                    channelName.appendChild(channelName_text);
-                    vid_info.appendChild(channelName);
-                    let views = document.createElement('p');
-                    let view1 = element.views;
-                    let time1 = ((new Date() - new Date(element.days)) / (1000 * 3600));
-                    let views_text = this.document.createTextNode((view1 > 1000 ? (view1 / 1000).toFixed(2) + ' K views' : view1 + ' views') + ' * ' + (time1 < 24 ? (Math.round(time1) + ' hours') : (Math.round(time1 / 24) + ' days')));
-                    views.appendChild(views_text);
-                    vid_info.appendChild(views);
-                    side_video_list.appendChild(vid_info);
-                    main.appendChild(side_video_list);
-                    document.getElementById('right-sidebar').appendChild(main);
-                }
+                            document.getElementById('save').childNodes[2].innerHTML = "Saved";
+                            document.getElementById('save').childNodes[0].src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIEAAACBCAMAAADQfiliAAAAVFBMVEX///8AAAB7e3uwsLDDw8Pp6ek8PDyenp7y8vIlJSX5+fnm5uY2Nja6urosLCyDg4Pd3d1SUlJvb28bGxtZWVmkpKQMDAxnZ2eUlJTT09NDQ0N1dXUALuQgAAABlElEQVR4nO3b3ZKCMAwFYJGCFVB+hKLy/u+5ruzFIlggScuMnnPdyDedZupFs9shS5KkKqREpYkM4JAF1GQHge+fyJ/vc2JvABMQBMxtUGwAcxciIyAwEUOwFwAEwZ6xBWcRwZm+CRKn4DeKLOA3Qh96O+RCgpwskDmInKMIAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQPCVAtMteNLsVKCWPOh1KSgeq4oNBaV+LtP1VoJK/63T3TaC/6+Q7S+bHQmGD7Gtz7vdCF7fottawoXgUowWFxefgnhqHiCK/Qna6SmhpPUluL4tuPoRNJaKxofAPpozOf4kKjiOm2CY4uhWEOvZIj1uCUHBmyYYZtwScoKl8yivt4SYIFxcGDoRmDVTScrIC7LbqtJbJi24pytr07usoCZU15IC2lBWLiew3QS2NFIC+mieEhHM3gS29LcET1ByZkQff5xKrqCdv4rs0RVP0DG/3/8KXVBRm2CYpiKX8o6A/O98bH4AznsmNFMxuM4AAAAASUVORK5CYII=";
+                        } else {
+                            isSaved = 0;
+                        }
+                    })
+
+                axios
+                    .get("http://localhost:8082/tube/IsSubscribe/" + User_id + '/' + responsedata.userId)
+                    .then(response => {
+                        // console.log(response.data);
+                        if (response.data == 1) {
+
+                            this.document.getElementById('subscribe').innerHTML = "Subscribed";
+                        }
+                    })
+                    .catch(error => console.error(error));
+                this.document.getElementById('channalPhoto').src = photourl + String(responsedata.profilePhoto);
+                this.document.getElementById('discription').innerHTML = responsedata.discription;
+                this.document.getElementById('commentNo').innerHTML = responsedata.comment.length + ' Comments';
+                getLikeStatus(id, window.localStorage.getItem('id'))
+                responsedata.comment.reverse().forEach(element => {
+                    reply_id = null;
+                    Comment(element, false, reply_id);
+
+
+
+                });
 
             })
+            .catch(error => console.error(error));
+
+        // ================================
+        axios
+            .get("http://localhost:8082/tube/items/homeVideo")
+            .then(response => {
+
+                response.data.forEach(element => {
+                    if (element.id != window.localStorage.getItem('v_id')) {
+                        console.log(element);
+                        let main = document.createElement("a");
+                        main.classList.add('main');
+                        main.onclick = function() {
+                            window.localStorage.setItem('v_id', element.id);
+                            window.location = "/html/VideoPage.html";
+                        };
+
+                        let side_video_list = document.createElement("div");
+                        side_video_list.classList.add('side-video-list');
+                        let small_thumbnail = document.createElement('a');
+                        small_thumbnail.classList.add('small-thumbnail');
+                        let small_thumbnail_img = document.createElement('img');
+                        small_thumbnail_img.src = photourl + String(element.thumbnail);
+                        small_thumbnail.appendChild(small_thumbnail_img);
+                        side_video_list.appendChild(small_thumbnail);
+                        let vid_info = document.createElement('div');
+                        vid_info.classList.add('vid-info');
+                        let vid_title = document.createElement('a');
+                        let vid_title_text = this.document.createTextNode(element.docName.length < 65 ? element.docName : element.docName.slice(0, 60) + '.....');
+                        vid_title.appendChild(vid_title_text);
+                        vid_info.appendChild(vid_title);
+                        let channelName = document.createElement('p');
+                        let channelName_text = this.document.createTextNode(element.user);
+                        channelName.appendChild(channelName_text);
+                        vid_info.appendChild(channelName);
+                        let views = document.createElement('p');
+                        let view1 = element.views;
+                        let time1 = ((new Date() - new Date(element.days)) / (1000 * 3600));
+                        let views_text = this.document.createTextNode((view1 > 1000 ? (view1 / 1000).toFixed(2) + ' K views' : view1 + ' views') + ' * ' + (time1 < 24 ? (Math.round(time1) + ' hours') : (Math.round(time1 / 24) + ' days')));
+                        views.appendChild(views_text);
+                        vid_info.appendChild(views);
+                        side_video_list.appendChild(vid_info);
+                        main.appendChild(side_video_list);
+                        document.getElementById('right-sidebar').appendChild(main);
+                    }
+
+                })
+            })
+            .catch(error => console.error(error));
+    })
+
+function save() {
+    axios
+        .get("http://localhost:8082/tube/saved/IsSave/" + User_id + '/' + Video_id)
+        .then(response => {
+            // console.log(response.data);
+            if (response.data == 0) {
+                axios
+                    .get("http://localhost:8082/tube/saved/SaveVideo/" + User_id + '/' + Video_id)
+                    .then(response => {
+                        // console.log(response.data, "subscribe");
+                        document.getElementById('save').childNodes[2].innerHTML = "Saved";
+                        document.getElementById('save').childNodes[0].src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIEAAACBCAMAAADQfiliAAAAVFBMVEX///8AAAB7e3uwsLDDw8Pp6ek8PDyenp7y8vIlJSX5+fnm5uY2Nja6urosLCyDg4Pd3d1SUlJvb28bGxtZWVmkpKQMDAxnZ2eUlJTT09NDQ0N1dXUALuQgAAABlElEQVR4nO3b3ZKCMAwFYJGCFVB+hKLy/u+5ruzFIlggScuMnnPdyDedZupFs9shS5KkKqREpYkM4JAF1GQHge+fyJ/vc2JvABMQBMxtUGwAcxciIyAwEUOwFwAEwZ6xBWcRwZm+CRKn4DeKLOA3Qh96O+RCgpwskDmInKMIAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQAABBBBAAAEEEEAAAQQQQPCVAtMteNLsVKCWPOh1KSgeq4oNBaV+LtP1VoJK/63T3TaC/6+Q7S+bHQmGD7Gtz7vdCF7fottawoXgUowWFxefgnhqHiCK/Qna6SmhpPUluL4tuPoRNJaKxofAPpozOf4kKjiOm2CY4uhWEOvZIj1uCUHBmyYYZtwScoKl8yivt4SYIFxcGDoRmDVTScrIC7LbqtJbJi24pytr07usoCZU15IC2lBWLiew3QS2NFIC+mieEhHM3gS29LcET1ByZkQff5xKrqCdv4rs0RVP0DG/3/8KXVBRm2CYpiKX8o6A/O98bH4AznsmNFMxuM4AAAAASUVORK5CYII=";
+
+                    })
+                    .catch(error => console.error(error));
+
+
+            } else {
+                axios
+                    .get("http://localhost:8082/tube/saved/UnSaveVideo/" + User_id + '/' + Video_id)
+                    .then(response => {
+                        // console.log(response.data, "subscribe");
+                        document.getElementById('save').childNodes[2].innerHTML = "Save";
+                        document.getElementById('save').childNodes[0].src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAMAAAD04JH5AAAAYFBMVEX///9NTU9KSkz29vbt7e1UVFZGRkhkZGVBQUOQkJHOzs89PT/g4OD7+/uTk5Q6Oj2+vr9vb3BfX2BpaWuEhIXW1tZ+fn/FxcZ3d3gvLzKsrKycnJ0oKCujo6S4uLlZWVuc59a0AAACtElEQVR4nO2a7ZqCIBCFE5FQIPIrrba6/7tcHWjLMgrF3R875089PsG8C2cAl1mtUCgUCoVCoRyK6yyA6nhi+CYXPIhE3kwIr3acRYHE+E55A+Q8VPhePPeNvxF9O8ICiPQ9iY1ffKn78HqXBtBO9wha+g1ANwEkqf2oX6lOOgLuNwRF32SKd0fV9H9O4dOCdsykmJq/z91duu4S6guwDgYQrxEAARAAARAAARAAARAAARAAARAAARAAARAAARAAARAAARAAARBgOQD6SbcLAhyj6PSXAJWOIl39GQAt4X6Zl++6XgigvtjrdXZ5c8W6DEDNyfVunHA3wSIA5z2E7tR/7re/DbDRMP0FpQUYQbvupsMDqNbYr1Xd9/z2/bcA6BpiitTQVFDswNcvI4QGkBHYf3+4PjiAH1j0qkYhMMAW7E90dnuUQZEE4S+sGBbgAPHZsLyiThgQHEabhARQR2P/9cNwS2MLfVwYQO0gvni2vGrBinqsYigcAE0cSZ+asRkJFAxAEuKYaesOQp6SIRRAAzVJhL2srrE/eCq/CQRwgElm3FGRJE39mX4YojAAlbW/c4uKbTJUD0/nA1Cz+ovqzSEhtutyex8uAIBNczGa5kPZhaK8m6n5AJI8rP4uPe8MswG2X8b+mavNTZlJhq+fZJgLcDLTWnxckCcLGDBxPbHPA1Dph2ff+/b2vJyq+QDK9DWy+rtkdwZeqrkA9vChP3j/Geqkb1acAZBF4CfhPPSOayugaZRNBijo6sy87D+UTQZ2XtHCFwBKOllrNliW+NWj/kgmZvrSlvmWdK7A+Wb1Efnk/xPEudm/CGSEV1NKru9d2q/hg8wYwinBawa6CTQbK+He9h/qZN4gGfe2kSwF5+Iyu7S3ufT9lFNsRJtmovuGkk3jOfwoFAqFQqH+l74BxS4txCdlv/kAAAAASUVORK5CYII=";
+
+                    })
+                    .catch(error => console.error(error));
+            }
+        })
+}
+
+
+function subscribe() {
+    axios
+        .get("http://localhost:8082/tube/IsSubscribe/" + User_id + '/' + Channel_id)
+        .then(response => {
+            console.log(response.data);
+            if (response.data == 0) {
+                axios
+                    .get("http://localhost:8082/tube/subscribe/" + User_id + '/' + Channel_id)
+                    .then(response => {
+                        // console.log(response.data, "subscribe");
+                        this.document.getElementById('subscribe').innerHTML = "Subscribed";
+                        this.document.getElementById('subscribeNo').innerHTML = response.data + " Subscribers";
+                    })
+                    .catch(error => console.error(error));
+            } else {
+                axios
+                    .get("http://localhost:8082/tube/unsubscribe/" + User_id + '/' + Channel_id)
+                    .then(response => {
+                        // console.log(response.data, "unsubscribe");
+                        this.document.getElementById('subscribe').innerHTML = "Subscribe";
+                        this.document.getElementById('subscribeNo').innerHTML = response.data + " Subscribers";
+                    })
+                    .catch(error => console.error(error));
+
+            }
+
         })
         .catch(error => console.error(error));
-})
+}
 
 function getLikeStatus(v_id, userId) {
     axios
@@ -472,7 +562,29 @@ vid.ontimeupdate = function() {
 }
 
 let ShareUrl = "http://127.0.0.1:5500/html/VideoPage.html?shgfsjdhSearch?" + V_id + "?=3828jshfnjha8ufmnsmnfPlayTubeVideo";
+let Shareflyout = document.getElementsByClassName('SaveflyOut')
+let main = document.getElementsByClassName('Main')
+let Tooltiptext = document.getElementsByClassName('tooltiptext')
+let statusfly = 0;
 
 function Share() {
-    alert(ShareUrl);
+    console.log(Shareflyout[0].childNodes[4].innerHTML = ShareUrl);
+    // Shareflyout[0].focus();
+    Shareflyout[0].style.display = "grid";
+    // window.focus()
+    main[0].classList.add("main_Old");
+    // statusfly = 1;
+    // main[0].style.backgroundColor = "black";
+}
+Shareflyout[0].addEventListener('click', function() {
+
+    Shareflyout[0].style.display = "none";
+    main[0].classList.remove("main_Old");
+})
+
+function copy() {
+    navigator.clipboard.writeText(ShareUrl);
+    Tooltiptext[0].innerHTML = "Copied";
+    Shareflyout[0].innerHTML = "Copied";
+    // console.log(Tooltiptext[0].innerHTML);
 }

@@ -35,27 +35,26 @@ window.addEventListener('load', function() {
 
     if (this.window.localStorage.getItem('id') !== '') {
 
-        const list = document.getElementById("logout");
-        let logout = document.createElement("a");
-        logout.href = "./index.html";
-        logout.textContent = "logout";
-        list.appendChild(logout);
-        // console.log(list);
-        // console.log(url1);
+        // const list = document.getElementById("logout");
+        // let logout = document.createElement("a");
+        // logout.href = "./index.html";
+        // logout.textContent = "logout";
+        // list.appendChild(logout);
+        // 
         let id = this.window.localStorage.getItem('id');
 
         axios
             .get("http://localhost:8082/tube/all/" + id)
             .then(response => {
                 console.log(response.data);
-                document.getElementById("update").innerHTML = "Hi " + response.data.userName;
+                // document.getElementById("update").innerHTML = "Hi " + response.data.userName;
                 // console.log(response.data.fname);
                 let url = "data:image/png;base64,";
                 let Base64 = String(response.data.profilephoto);
                 let imgsrc = url + Base64;
-                let ee = document.getElementById("loginurl");
-
-                ee.setAttribute('src', imgsrc);
+                let ee = document.getElementsByClassName('login');
+                console.log(ee[0])
+                ee[0].childNodes[1].setAttribute('src', imgsrc);
 
 
             })
@@ -103,8 +102,7 @@ function myFunction() {
 window.addEventListener('load',
     function fun() {
         window.localStorage.setItem('v_id', '');
-        axios
-            .get("http://localhost:8082/tube/items/homeVideo")
+        axios.get("http://localhost:8082/tube/items/homeVideo")
             .then(response => {
                 for (i = 0; i < response.data.length; i++) {
                     let url = "data:video/mp4;base64,";

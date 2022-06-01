@@ -39,6 +39,17 @@
         var splitString = dob.value.split("-");
         var date = splitString.reverse().join('/');
         console.log(date);
+
+        ////////////////////
+        // var canvas = document.createElement("canvas");
+        //                     var ctx = canvas.getContext('2d');
+        //                     canvas.width = 300
+        //                     canvas.height = 234
+        //                     ctx.drawImage(photo.files[0], 0, 0, 300, 234);
+        //                     var dataurl = canvas.toDataURL(photo.files[0].type);
+
+
+        // //////////////////////
         let data = new FormData();
         data.append("fname", fname.value);
         data.append("lname", lname.value);
